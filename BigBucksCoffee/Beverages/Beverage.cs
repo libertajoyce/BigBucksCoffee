@@ -15,14 +15,16 @@
         }
 
         public string Image { get; set; }
+        public string Background { get; set; }
 
-        public Beverage(int id, string name, string description, double price, string image = "Images/coffee2.jpeg")
+        public Beverage(int id, string name, string description, double price, string image = "Images/coffee2.jpg", string background = "Images/coffee2.jpg")
         {
             ID = id;
             Name = name;
             Description = description;
             Price = price;
             Image = image;
+            Background = background;
         }
 
         public override string ToString()

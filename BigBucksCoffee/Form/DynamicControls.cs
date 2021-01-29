@@ -40,6 +40,7 @@ namespace BigBucksCoffee
                     //IsInStock = drink.IsInStock,
                     Description = drink.Description,
                     Image = drink.Image,
+                    Background = drink.Background
                 };
 
                 myUserControl.ButtonAddToCartClicked += OnButtonAddToCartClicked;

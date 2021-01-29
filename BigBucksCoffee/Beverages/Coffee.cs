@@ -7,8 +7,8 @@
         public bool HasAlcohol { get; set; }
         public override double Price { get; set; }
 
-        public Coffee(int id, string name, string description, double price, string image, bool hasMilk, bool hasSugar, bool hasAlcohol )
-        : base(id, name, description, price, image)
+        public Coffee(int id, string name, string description, double price, string image, string background , bool hasMilk, bool hasSugar, bool hasAlcohol )
+        : base(id, name, description, price, image, background)
         {
             Price = price;
             HasMilk = hasMilk;

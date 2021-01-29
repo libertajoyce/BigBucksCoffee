@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace UserControls
@@ -65,6 +66,20 @@ namespace UserControls
                 }
             }
         }
+        private string _background;
+
+        public string Background
+        {
+            set {
+                if (value != null)
+                {
+                    _background = value;
+                    pbBackground.ImageLocation = _background;
+                    pbBackground.Load(_background);
+                }
+            }
+        }
+
 
         private int _count;
 
@@ -94,13 +109,16 @@ namespace UserControls
 
         private void pbProduct_MouseHover(object sender, EventArgs e)
         {
-            lblDescription.Visible = true;
+            //lblDescription.Visible = true;
+            //lblDescription.BackColor = Color.Transparent;
             lblDescription.Text = Description;
+            pbBackground.Visible = true;
         }
 
         private void lblDescription_MouseLeave(object sender, EventArgs e)
         {
             lblDescription.Visible = false;
+            pbBackground.Visible = false;
         }
 
         private void lblDescription_Click(object sender, EventArgs e)

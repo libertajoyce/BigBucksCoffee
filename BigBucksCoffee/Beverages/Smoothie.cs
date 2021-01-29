@@ -8,8 +8,8 @@
         public override double Price { get; set; }
 
 
-        public Smoothie(int id, string name, string description, double price, string image, bool hasYoghurt, bool hasMilk, bool isLactoseFree)
-       : base(id, name, description, price, image)
+        public Smoothie(int id, string name, string description, double price, string image, string background, bool hasYoghurt, bool hasMilk, bool isLactoseFree)
+       : base(id, name, description, price, image, background)
         {
             Price = price;
             HasYoghurt = hasYoghurt;

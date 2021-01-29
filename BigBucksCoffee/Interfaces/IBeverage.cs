@@ -7,5 +7,6 @@
         string Description { get; set; }
         double Price { get; set; }
         string Image { get; set; }
+        string Background { get; set; }
     }
 }

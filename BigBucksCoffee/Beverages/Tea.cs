@@ -8,8 +8,8 @@
         public bool HasLemon { get; set; }
         public override double Price { get; set; }
 
-        public Tea(int id, string name, string description, double price, string image, bool hasMilk, bool hasSugar, bool hasHoney, bool hasLemon)
-        : base(id, name, description, price, image)
+        public Tea(int id, string name, string description, double price, string image, string background, bool hasMilk, bool hasSugar, bool hasHoney, bool hasLemon)
+        : base(id, name, description, price, image, background)
         {
             Price = price;
             HasMilk = hasMilk;

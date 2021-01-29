@@ -121,6 +121,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="BackgroundImages\blackTea.png" />
+    <Content Include="BackgroundImages\coffeeBlack.png" />
+    <Content Include="BackgroundImages\coffeeCream.png" />
+    <Content Include="BackgroundImages\cola.png" />
+    <Content Include="BackgroundImages\fanta.png" />
+    <Content Include="BackgroundImages\greenTea.png" />
+    <Content Include="BackgroundImages\greenTea2.png" />
+    <Content Include="BackgroundImages\greenTea3.png" />
+    <Content Include="BackgroundImages\strawberrySmoothie.png" />
     <Content Include="Images\blackCoffee.jpg" />
     <Content Include="Images\blackTea.jpg" />
     <Content Include="Images\coffee2.jpg" />
