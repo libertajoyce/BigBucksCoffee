@@ -109,8 +109,7 @@ namespace UserControls
 
         private void pbProduct_MouseHover(object sender, EventArgs e)
         {
-            //lblDescription.Visible = true;
-            //lblDescription.BackColor = Color.Transparent;
+            lblDescription.Visible = true;
             lblDescription.Text = Description;
             pbBackground.Visible = true;
         }
@@ -120,14 +119,16 @@ namespace UserControls
             lblDescription.Visible = false;
             pbBackground.Visible = false;
         }
-
-        private void lblDescription_Click(object sender, EventArgs e)
+        private void pbBackground_MouseLeave(object sender, EventArgs e)
         {
+            lblDescription.Visible = false;
+            pbBackground.Visible = false;
         }
 
         private void numAmount_ValueChanged(object sender, EventArgs e)
         {
             btnAddToCart.Enabled = true;
         }
+
     }
 }
