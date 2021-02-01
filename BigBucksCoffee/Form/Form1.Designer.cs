@@ -52,7 +52,7 @@ namespace BigBucksCoffee
             0});
             this.myUserControl1.Count = 0;
             this.myUserControl1.Description = "";
-            this.myUserControl1.DrinkID = 0;
+            this.myUserControl1.DrinkId = 0;
             this.myUserControl1.IsInStock = false;
             this.myUserControl1.Location = new System.Drawing.Point(10, 10);
             this.myUserControl1.Margin = new System.Windows.Forms.Padding(4);

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserControls;
 
@@ -13,26 +7,24 @@ namespace BigBucksCoffee
 {
     public partial class DynamicControls : Form
     {
-        BeverageRepo beverageRepo;
-        IList<IBeverage> drinks;
-        IShoppingCart shoppingCart;
+        private IBeverageRepo beverageRepo;
+        private IList<IBeverage> drinks;
+        private IShoppingCart shoppingCart;
 
         public DynamicControls()
         {
             InitializeComponent();
-            beverageRepo = new BeverageRepo();
-            Refresh();
+            beverageRepo = BeverageRepo.GetBeverageRepo();
+            RefreshControls();
             shoppingCart = ShoppingCart.GetCart();
-
         }
 
-       
-        private void Refresh()
+        private void RefreshControls()
         {
             drinks = beverageRepo.GetBeverages();
             GenerateControlsForDrinks(drinks);
-
         }
+
         private void GenerateControlsForDrinks(IEnumerable<IBeverage> drinks)
         {
             flowLayoutPanel1.Controls.Clear();
@@ -40,7 +32,7 @@ namespace BigBucksCoffee
             {
                 MyUserControl myUserControl = new MyUserControl
                 {
-                    DrinkID = drink.ID,
+                    DrinkId = drink.ID,
                     MyProductName = drink.Name,
                     Price = drink.Price.ToString(),
                     //IsInStock = drink.IsInStock,
@@ -58,18 +50,18 @@ namespace BigBucksCoffee
         private void OnButtonAddToCartClicked(object sender, EventArgs e)
         {
             MyUserControl myUserControl = sender as MyUserControl;
-            IBeverage drink = beverageRepo.GetDrink(myUserControl.DrinkID);
-                for (int i = 0; i < myUserControl.Amount; i++)
-                {
-                    shoppingCart.AddDrinkToCart(drink);
-                }
+            IBeverage drink = beverageRepo.GetDrink(myUserControl.DrinkId);
+
+            for (int i = 0; i < myUserControl.Amount; i++)
+            {
+                shoppingCart.AddDrinkToCart(drink);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form formCart = new FormShoppingCart();
             formCart.Show();
-            
         }
 
         private void btnAddToInventory_Click(object sender, EventArgs e)
@@ -80,7 +72,7 @@ namespace BigBucksCoffee
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshControls();
         }
     }
 }
