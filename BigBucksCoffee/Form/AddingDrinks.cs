@@ -65,7 +65,7 @@ namespace BigBucksCoffee
 
             if (rbCoffee.Checked)
             {
-                _drink = new Coffee(10, name, description, price, image, backgroundImage, true, true, true);
+                _drink = new Coffee(10, name, description, price, image, backgroundImage, hasMilk, hasSugar, hasAlcohol);
             }
             else if (rbTea.Checked)
             {
