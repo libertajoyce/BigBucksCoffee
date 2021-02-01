@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.IO;
 using System.Windows.Forms;
 
@@ -9,6 +8,7 @@ namespace BigBucksCoffee
     {
         private IBeverage _drink;
         private IBeverageRepo _repo;
+        private string choices;
 
         public AddingDrinks()
         {
@@ -33,7 +33,7 @@ namespace BigBucksCoffee
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string text = $"{txtAddingName.Text},{numAddingPrice.Value},{txtAddingDescription.Text},{clbAddingExtras.CheckedItems}";
+            string text = $"{txtAddingName.Text},{numAddingPrice.Value},{txtAddingDescription.Text},{CheckboxText()}";
 
             saveFileDialog1.Filter = "txt files|*.txt";
             saveFileDialog1.InitialDirectory = "C:\\";
@@ -43,6 +43,22 @@ namespace BigBucksCoffee
             {
                 File.WriteAllText(saveFileDialog1.FileName, text);
             }
+        }
+
+        public string CheckboxText()
+        {
+            if (clbAddingExtras.CheckedItems.Count != 0)
+            {
+                for (int i = 0; i <= (clbAddingExtras.Items.Count - 1); i++)
+                {
+                    if (clbAddingExtras.GetItemChecked(i))
+                    {
+                        choices = clbAddingExtras.Items[i].ToString() + "\n";
+                    }
+                }
+            }
+
+            return choices;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -60,7 +76,7 @@ namespace BigBucksCoffee
             bool isDiet = CheckItem("Contains no sugar, is diet");
             bool hasBubbles = CheckItem("Is carbonated");
             bool hasCaffeine = CheckItem("Contains caffeine");
-            bool hasYoghurt= CheckItem("Contains yoghurt");
+            bool hasYoghurt = CheckItem("Contains yoghurt");
             bool hasLactose = CheckItem("Contains no lactose, soy alternative");
 
             if (rbCoffee.Checked)
@@ -82,23 +98,25 @@ namespace BigBucksCoffee
 
             _repo.AddDrink(_drink);
         }
-        
+
         private bool CheckItem(string input)
         {
-            if (clbAddingExtras.CheckedItems.Equals(input))
+            if (clbAddingExtras.CheckedItems.Count != 0)
             {
-                return true;
+                if (clbAddingExtras.CheckedItems.Equals(input))
+                {
+                    return true;
+                }
             }
             return false;
         }
-       
+
         private void rbCoffee_CheckedChanged(object sender, EventArgs e)
         {
             clbAddingExtras.Items.Clear();
             clbAddingExtras.Items.Add("Contains milk");
             clbAddingExtras.Items.Add("Contains sugar");
             clbAddingExtras.Items.Add("Contains alcohol");
-            
         }
 
         private void rbTea_CheckedChanged(object sender, EventArgs e)
