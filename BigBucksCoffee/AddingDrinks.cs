@@ -17,6 +17,20 @@ namespace BigBucksCoffee
         public AddingDrinks()
         {
             InitializeComponent();
+        IBeverage drink;
+        IBeverageRepo drinks;
+        public AddingDrinks()
+        {
+            InitializeComponent();
+            drinks = new BeverageRepo();
+>>>>>>>>> Temporary merge branch 2
+        IBeverage drink;
+        IBeverageRepo drinks;
+        public AddingDrinks()
+        {
+            InitializeComponent();
+            drinks = new BeverageRepo();
+>>>>>>>>> Temporary merge branch 2
         }
         public int tempID = 1;
         
