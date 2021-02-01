@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BigBucksCoffee
 {
-    class PriceCalculator : IPriceCalculator
+    public class PriceCalculator : IPriceCalculator
     {
 
         public double CalculateTax(IEnumerable<IBeverage> beverages)
@@ -35,6 +35,9 @@ namespace BigBucksCoffee
             return Math.Round(total, 2);
         }
 
-      
+        public int CalculateSomething(int num1, int num2)
+        {
+            return num1 + num2;
+        }
     }
 }

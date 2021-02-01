@@ -14,9 +14,12 @@ namespace BigBucksCoffee
     public partial class AddingDrinks : Form
     {
         IBeverage drinks;
+        IBeverageRepo repo;
+
         public AddingDrinks()
         {
             InitializeComponent();
+            repo = new BeverageRepo(); 
         }
         public int tempID = 1;
         
@@ -48,9 +51,16 @@ namespace BigBucksCoffee
         }
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            string name = txtAddingName.Text;
+            string description = txtAddingDescription.Text;
+            double price = Convert.ToDouble(numAddingPrice.Value);
+            string image = pbAddingPicture.ImageLocation;
+            string backgroundImage = pbAddingPicture.ImageLocation;
+
+
             if (rbCoffee.Checked == true)
             {
-                drinks = new Coffee(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true);
+                drinks = new Coffee(10, name, description, price, image, backgroundImage, true, true, true);
             }
             else if (rbTea.Checked == true)
             {
@@ -64,6 +74,7 @@ namespace BigBucksCoffee
             {
                 drinks = new Smoothie(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true);
             }
+            repo.AddDrink(drinks);
         }
     }
 }

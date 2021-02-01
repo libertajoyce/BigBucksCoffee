@@ -130,24 +130,60 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="BackgroundImages\blackTea.png" />
-    <Content Include="BackgroundImages\coffeeBlack.png" />
-    <Content Include="BackgroundImages\coffeeCream.png" />
-    <Content Include="BackgroundImages\cola.png" />
-    <Content Include="BackgroundImages\fanta.png" />
-    <Content Include="BackgroundImages\greenTea.png" />
-    <Content Include="BackgroundImages\greenTea2.png" />
-    <Content Include="BackgroundImages\greenTea3.png" />
-    <Content Include="BackgroundImages\strawberrySmoothie.png" />
-    <Content Include="Images\blackCoffee.jpg" />
-    <Content Include="Images\blackTea.jpg" />
-    <Content Include="Images\coffee2.jpg" />
-    <Content Include="Images\cola.jpg" />
-    <Content Include="Images\fanta.jpg" />
-    <Content Include="Images\greenTea.jpg" />
-    <Content Include="Images\greenTea.png" />
-    <Content Include="Images\greenTea2.jpg" />
-    <Content Include="Images\strawberrySmoothie.jpg" />
+    <Content Include="BackgroundImages\blackTea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BackgroundImages\coffeeBlack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BackgroundImages\coffeeCream.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BackgroundImages\cola.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BackgroundImages\fanta.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BackgroundImages\greenTea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BackgroundImages\greenTea2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BackgroundImages\greenTea3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BackgroundImages\strawberrySmoothie.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\blackCoffee.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\blackTea.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\coffee2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\cola.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\fanta.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\greenTea.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\greenTea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\greenTea2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\strawberrySmoothie.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

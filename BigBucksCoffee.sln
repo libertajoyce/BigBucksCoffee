@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBucksCoffee", "BigBucksCoffee\BigBucksCoffee.csproj", "{8993ABF7-9126-457E-BE72-E02F5592BD6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBucksCoffee.Test", "BigBucksCoffee.Test\BigBucksCoffee.Test.csproj", "{E206C384-C8FC-46DF-B8C4-1C44E7CD2E92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigBucksCoffee.Test", "BigBucksCoffee.Test\BigBucksCoffee.Test.csproj", "{E206C384-C8FC-46DF-B8C4-1C44E7CD2E92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBucksCoffeeTest.Test", "BigBucksCoffeeTest.Test\BigBucksCoffeeTest.Test.csproj", "{AE6562D7-9929-4D8C-A730-B7988A944A50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E206C384-C8FC-46DF-B8C4-1C44E7CD2E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E206C384-C8FC-46DF-B8C4-1C44E7CD2E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E206C384-C8FC-46DF-B8C4-1C44E7CD2E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE6562D7-9929-4D8C-A730-B7988A944A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6562D7-9929-4D8C-A730-B7988A944A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6562D7-9929-4D8C-A730-B7988A944A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6562D7-9929-4D8C-A730-B7988A944A50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

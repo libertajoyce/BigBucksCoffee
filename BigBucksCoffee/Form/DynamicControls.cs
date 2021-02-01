@@ -21,13 +21,21 @@ namespace BigBucksCoffee
         {
             InitializeComponent();
             beverageRepo = new BeverageRepo();
-            drinks = beverageRepo.GetBeverages();
-            GenerateControlsForDrinks(drinks);
+            Refresh();
             shoppingCart = ShoppingCart.GetCart();
+
         }
 
+       
+        private void Refresh()
+        {
+            drinks = beverageRepo.GetBeverages();
+            GenerateControlsForDrinks(drinks);
+
+        }
         private void GenerateControlsForDrinks(IEnumerable<IBeverage> drinks)
         {
+            flowLayoutPanel1.Controls.Clear();
             foreach (IBeverage drink in drinks)
             {
                 MyUserControl myUserControl = new MyUserControl
@@ -68,6 +76,11 @@ namespace BigBucksCoffee
         {
             Form addDrinks = new AddingDrinks();
             addDrinks.Show();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace BigBucksCoffee
         public BeverageRepo()
         {
             drinks = GetInitialBeverages();
-            AddDrinkExample();
+      
         }
 
         private List<IBeverage> GetInitialBeverages()
@@ -45,12 +45,6 @@ namespace BigBucksCoffee
         {
             drinks.Add(beverage);
         }
-        private void AddDrinkExample()
-        {
-           var tea =  new Tea(7, "Tea 1", "Just a tea", 3, @"Images\greenTea.png", @"BackgroundImages\greenTea.png", false, true, false, false);
-           var coffee = new Coffee(8, "Coffee with milk", "Coffee with milk", 2.5, @"Images\blackCoffee.jpg", @"BackgroundImages\coffeeBlack.png", false, true, false);
-           AddDrink(tea);
-           AddDrink(coffee);
-        }
+      
     }
 }
