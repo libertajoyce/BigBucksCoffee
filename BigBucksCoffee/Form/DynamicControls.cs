@@ -14,7 +14,7 @@ namespace BigBucksCoffee
     public partial class DynamicControls : Form
     {
         BeverageRepo beverageRepo;
-        List<IBeverage> drinks;
+        IList<IBeverage> drinks;
         IShoppingCart shoppingCart;
 
         public DynamicControls()
@@ -63,6 +63,12 @@ namespace BigBucksCoffee
             Form formCart = new FormShoppingCart();
             formCart.Show();
             
+        }
+
+        private void btnAddToInventory_Click(object sender, EventArgs e)
+        {
+            Form addDrinks = new AddingDrinks();
+            addDrinks.Show();
         }
     }
 }

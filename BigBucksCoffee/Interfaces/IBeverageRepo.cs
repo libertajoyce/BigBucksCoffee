@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BigBucksCoffee
 {
-    interface IBeverageRepo
+    public interface IBeverageRepo
     {
-        List<IBeverage> GetBeverages();
+        void AddDrink(IBeverage beverage);
+        IList<IBeverage> GetBeverages();
         IBeverage GetDrink(int id);
     }
 }

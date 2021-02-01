@@ -31,6 +31,7 @@ namespace BigBucksCoffee
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnAddToInventory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -53,11 +54,22 @@ namespace BigBucksCoffee
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnAddToInventory
+            // 
+            this.btnAddToInventory.Location = new System.Drawing.Point(112, 12);
+            this.btnAddToInventory.Name = "btnAddToInventory";
+            this.btnAddToInventory.Size = new System.Drawing.Size(94, 45);
+            this.btnAddToInventory.TabIndex = 1;
+            this.btnAddToInventory.Text = "Add new drinks";
+            this.btnAddToInventory.UseVisualStyleBackColor = true;
+            this.btnAddToInventory.Click += new System.EventHandler(this.btnAddToInventory_Click);
+            // 
             // DynamicControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 666);
+            this.Controls.Add(this.btnAddToInventory);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "DynamicControls";
@@ -70,5 +82,6 @@ namespace BigBucksCoffee
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddToInventory;
     }
 }
