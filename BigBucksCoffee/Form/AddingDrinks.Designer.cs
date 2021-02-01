@@ -43,12 +43,12 @@ namespace BigBucksCoffee
             this.txtAddingName = new System.Windows.Forms.TextBox();
             this.txtAddingDescription = new System.Windows.Forms.TextBox();
             this.numAddingPrice = new System.Windows.Forms.NumericUpDown();
-            this.comboAddingExtras = new System.Windows.Forms.ComboBox();
             this.pbAddingPicture = new System.Windows.Forms.PictureBox();
             this.btnSelectImage = new System.Windows.Forms.Button();
             this.ofdImageSelector = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.clbAddingExtras = new System.Windows.Forms.CheckedListBox();
             this.gbDrinkChoices.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAddingPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAddingPicture)).BeginInit();
@@ -64,6 +64,7 @@ namespace BigBucksCoffee
             this.rbCoffee.TabStop = true;
             this.rbCoffee.Text = "Coffee";
             this.rbCoffee.UseVisualStyleBackColor = true;
+            this.rbCoffee.CheckedChanged += new System.EventHandler(this.rbCoffee_CheckedChanged);
             // 
             // rbTea
             // 
@@ -75,6 +76,7 @@ namespace BigBucksCoffee
             this.rbTea.TabStop = true;
             this.rbTea.Text = "Tea";
             this.rbTea.UseVisualStyleBackColor = true;
+            this.rbTea.CheckedChanged += new System.EventHandler(this.rbTea_CheckedChanged);
             // 
             // rbSoda
             // 
@@ -86,6 +88,7 @@ namespace BigBucksCoffee
             this.rbSoda.TabStop = true;
             this.rbSoda.Text = "Soda";
             this.rbSoda.UseVisualStyleBackColor = true;
+            this.rbSoda.CheckedChanged += new System.EventHandler(this.rbSoda_CheckedChanged);
             // 
             // rbSmoothie
             // 
@@ -97,6 +100,7 @@ namespace BigBucksCoffee
             this.rbSmoothie.TabStop = true;
             this.rbSmoothie.Text = "Smoothie";
             this.rbSmoothie.UseVisualStyleBackColor = true;
+            this.rbSmoothie.CheckedChanged += new System.EventHandler(this.rbSmoothie_CheckedChanged);
             // 
             // gbDrinkChoices
             // 
@@ -146,7 +150,7 @@ namespace BigBucksCoffee
             // 
             this.lblAddingDescription.AutoSize = true;
             this.lblAddingDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddingDescription.Location = new System.Drawing.Point(8, 349);
+            this.lblAddingDescription.Location = new System.Drawing.Point(397, 287);
             this.lblAddingDescription.Name = "lblAddingDescription";
             this.lblAddingDescription.Size = new System.Drawing.Size(169, 20);
             this.lblAddingDescription.TabIndex = 7;
@@ -156,7 +160,7 @@ namespace BigBucksCoffee
             // 
             this.lblAddingPicture.AutoSize = true;
             this.lblAddingPicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddingPicture.Location = new System.Drawing.Point(310, 181);
+            this.lblAddingPicture.Location = new System.Drawing.Point(397, 12);
             this.lblAddingPicture.Name = "lblAddingPicture";
             this.lblAddingPicture.Size = new System.Drawing.Size(202, 20);
             this.lblAddingPicture.TabIndex = 8;
@@ -183,10 +187,10 @@ namespace BigBucksCoffee
             // txtAddingDescription
             // 
             this.txtAddingDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddingDescription.Location = new System.Drawing.Point(12, 372);
+            this.txtAddingDescription.Location = new System.Drawing.Point(401, 319);
             this.txtAddingDescription.Multiline = true;
             this.txtAddingDescription.Name = "txtAddingDescription";
-            this.txtAddingDescription.Size = new System.Drawing.Size(231, 148);
+            this.txtAddingDescription.Size = new System.Drawing.Size(231, 136);
             this.txtAddingDescription.TabIndex = 11;
             // 
             // numAddingPrice
@@ -203,19 +207,10 @@ namespace BigBucksCoffee
             this.numAddingPrice.Size = new System.Drawing.Size(231, 27);
             this.numAddingPrice.TabIndex = 12;
             // 
-            // comboAddingExtras
-            // 
-            this.comboAddingExtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboAddingExtras.FormattingEnabled = true;
-            this.comboAddingExtras.Location = new System.Drawing.Point(12, 310);
-            this.comboAddingExtras.Name = "comboAddingExtras";
-            this.comboAddingExtras.Size = new System.Drawing.Size(231, 28);
-            this.comboAddingExtras.TabIndex = 14;
-            // 
             // pbAddingPicture
             // 
             this.pbAddingPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAddingPicture.Location = new System.Drawing.Point(314, 234);
+            this.pbAddingPicture.Location = new System.Drawing.Point(401, 43);
             this.pbAddingPicture.Name = "pbAddingPicture";
             this.pbAddingPicture.Size = new System.Drawing.Size(194, 181);
             this.pbAddingPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -224,7 +219,7 @@ namespace BigBucksCoffee
             // 
             // btnSelectImage
             // 
-            this.btnSelectImage.Location = new System.Drawing.Point(314, 433);
+            this.btnSelectImage.Location = new System.Drawing.Point(401, 247);
             this.btnSelectImage.Name = "btnSelectImage";
             this.btnSelectImage.Size = new System.Drawing.Size(194, 23);
             this.btnSelectImage.TabIndex = 16;
@@ -246,16 +241,25 @@ namespace BigBucksCoffee
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // clbAddingExtras
+            // 
+            this.clbAddingExtras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clbAddingExtras.FormattingEnabled = true;
+            this.clbAddingExtras.Location = new System.Drawing.Point(12, 319);
+            this.clbAddingExtras.Name = "clbAddingExtras";
+            this.clbAddingExtras.Size = new System.Drawing.Size(362, 151);
+            this.clbAddingExtras.TabIndex = 18;
+            // 
             // AddingDrinks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 553);
+            this.ClientSize = new System.Drawing.Size(694, 553);
+            this.Controls.Add(this.clbAddingExtras);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSelectImage);
             this.Controls.Add(this.pbAddingPicture);
-            this.Controls.Add(this.comboAddingExtras);
             this.Controls.Add(this.numAddingPrice);
             this.Controls.Add(this.txtAddingDescription);
             this.Controls.Add(this.txtAddingName);
@@ -291,12 +295,12 @@ namespace BigBucksCoffee
         private System.Windows.Forms.TextBox txtAddingName;
         private System.Windows.Forms.TextBox txtAddingDescription;
         private System.Windows.Forms.NumericUpDown numAddingPrice;
-        private System.Windows.Forms.ComboBox comboAddingExtras;
         private System.Windows.Forms.PictureBox pbAddingPicture;
         private System.Windows.Forms.Button btnSelectImage;
         private System.Windows.Forms.OpenFileDialog ofdImageSelector;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.CheckedListBox clbAddingExtras;
     }
 }

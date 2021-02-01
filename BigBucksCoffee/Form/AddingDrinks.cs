@@ -38,7 +38,7 @@ namespace BigBucksCoffee
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string text = $"{txtAddingName.Text},{numAddingPrice.Value},{txtAddingDescription.Text},{comboAddingExtras.SelectedItem}";
+            string text = $"{txtAddingName.Text},{numAddingPrice.Value},{txtAddingDescription.Text},{clbAddingExtras.SelectedItem}";
 
             saveFileDialog1.Filter = "txt files|*.txt";
             saveFileDialog1.InitialDirectory = "C:\\";
@@ -75,6 +75,40 @@ namespace BigBucksCoffee
                 drinks = new Smoothie(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true);
             }
             repo.AddDrink(drinks);
+        }
+
+        private void rbCoffee_CheckedChanged(object sender, EventArgs e)
+        {
+            clbAddingExtras.Items.Clear();
+            clbAddingExtras.Items.Add("Contains milk");
+            clbAddingExtras.Items.Add("Contains sugar");
+            clbAddingExtras.Items.Add("Contains alcohol");
+            
+        }
+
+        private void rbTea_CheckedChanged(object sender, EventArgs e)
+        {
+            clbAddingExtras.Items.Clear();
+            clbAddingExtras.Items.Add("Contains milk");
+            clbAddingExtras.Items.Add("Contains sugar");
+            clbAddingExtras.Items.Add("Contains honey");
+            clbAddingExtras.Items.Add("Contains lemon");
+        }
+
+        private void rbSoda_CheckedChanged(object sender, EventArgs e)
+        {
+            clbAddingExtras.Items.Clear();
+            clbAddingExtras.Items.Add("Contains no sugar, is diet");
+            clbAddingExtras.Items.Add("Is carbonated");
+            clbAddingExtras.Items.Add("Contains caffeine");
+        }
+
+        private void rbSmoothie_CheckedChanged(object sender, EventArgs e)
+        {
+            clbAddingExtras.Items.Clear();
+            clbAddingExtras.Items.Add("Contains yoghurt");
+            clbAddingExtras.Items.Add("Contains milk");
+            clbAddingExtras.Items.Add("Contains no lactose, soy alternative");
         }
     }
 }
