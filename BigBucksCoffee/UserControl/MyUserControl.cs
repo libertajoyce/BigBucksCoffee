@@ -82,8 +82,6 @@ namespace UserControls
                 }
             }
         }
-
-
         private int _count;
 
         public int Count
@@ -95,22 +93,6 @@ namespace UserControls
                 {
                     _count = value;
                 }
-
-
-                //if (CanAddItems(value))
-                //{
-                //    _count += value;
-                //}
-
-                //if ((Count + value) <= MaxCount)
-                //{
-                //    _count += value;
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Maximum Limit of items!");
-                //    btnAddToCart.Enabled = false;
-                //}
             }
         }
         private bool CanAddItems(int amount)
@@ -135,10 +117,6 @@ namespace UserControls
                 MessageBox.Show("Maximum Limit of items!");
                 btnAddToCart.Enabled = false;
             }
-            //Count = Convert.ToInt32(Amount);
-            //lblTotal.Text = (Count).ToString();
-
-            //OnButtonAddToCartClicked(e);
         }
 
         private void pbProduct_MouseHover(object sender, EventArgs e)
