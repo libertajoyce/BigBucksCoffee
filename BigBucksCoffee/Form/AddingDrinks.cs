@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,7 +39,7 @@ namespace BigBucksCoffee
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string text = $"{txtAddingName.Text},{numAddingPrice.Value},{txtAddingDescription.Text},{clbAddingExtras.SelectedItem}";
+            string text = $"{txtAddingName.Text},{numAddingPrice.Value},{txtAddingDescription.Text},{clbAddingExtras.CheckedItems}";
 
             saveFileDialog1.Filter = "txt files|*.txt";
             saveFileDialog1.InitialDirectory = "C:\\";
@@ -56,11 +57,20 @@ namespace BigBucksCoffee
             double price = Convert.ToDouble(numAddingPrice.Value);
             string image = pbAddingPicture.ImageLocation;
             string backgroundImage = pbAddingPicture.ImageLocation;
-
+            bool hasMilk = CheckItem("Contains milk");
+            bool hasSugar = CheckItem("Contains sugar");
+            bool hasAlcohol = CheckItem("Contains alcohol");
+            bool hasHoney = CheckItem("Contains honey");
+            bool hasLemon = CheckItem("Contains lemon");
+            bool isDiet = CheckItem("Contains no sugar, is diet");
+            bool hasBubbles = CheckItem("Is carbonated");
+            bool hasCaffeine = CheckItem("Contains caffeine");
+            bool hasYoghurt= CheckItem("Contains yoghurt");
+            bool hasLactose = CheckItem("Contains no lactose, soy alternative");
 
             if (rbCoffee.Checked == true)
             {
-                drinks = new Coffee(10, name, description, price, image, backgroundImage, true, true, true);
+                drinks = new Coffee(10, name, description, price, image, backgroundImage, hasMilk, hasSugar, hasAlcohol);
             }
             else if (rbTea.Checked == true)
             {
@@ -76,7 +86,16 @@ namespace BigBucksCoffee
             }
             repo.AddDrink(drinks);
         }
-
+        
+        private bool CheckItem(string input)
+        {
+            if (clbAddingExtras.CheckedItems.Equals(input))
+            {
+                return true;
+            }
+            return false;
+        }
+       
         private void rbCoffee_CheckedChanged(object sender, EventArgs e)
         {
             clbAddingExtras.Items.Clear();
