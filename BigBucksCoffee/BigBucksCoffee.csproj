@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddingDrinks.cs">
+    <Compile Include="Form\AddingDrinks.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddingDrinks.Designer.cs">
+    <Compile Include="Form\AddingDrinks.Designer.cs">
       <DependentUpon>AddingDrinks.cs</DependentUpon>
     </Compile>
     <Compile Include="Beverages\Beverage.cs" />
@@ -90,7 +90,7 @@
     <Compile Include="Beverages\Soda.cs" />
     <Compile Include="Beverages\Tea.cs" />
     <Compile Include="BeverageRepo.cs" />
-    <EmbeddedResource Include="AddingDrinks.resx">
+    <EmbeddedResource Include="Form\AddingDrinks.resx">
       <DependentUpon>AddingDrinks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\DynamicControls.resx">
