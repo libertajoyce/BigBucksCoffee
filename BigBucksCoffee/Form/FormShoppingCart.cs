@@ -10,14 +10,14 @@ namespace BigBucksCoffee
     {
         private PriceCalculator priceCalculator;
         private ShoppingCart myCart;
-        private string path = "C:/Users/emmad/source/repos/BigBucksCoffeeProject/BigBucksCoffee/bin/Debug/orderDetails.txt";
-
+        private string path = $"C:/Users/{Environment.UserName}/Desktop/orderDetails.txt";
+        private IEnumerable<IBeverage> drinks;
         public FormShoppingCart()
         {
             InitializeComponent();
             priceCalculator = new PriceCalculator();
             myCart = ShoppingCart.GetCart();
-            var drinks = myCart.GetDrinksInCart();
+            drinks = myCart.GetDrinksInCart();
             ShowShoppingCartItems(drinks);
             ShowTotalExclBTW(drinks);
             ShowBTW(drinks);
@@ -50,43 +50,22 @@ namespace BigBucksCoffee
 
         public void PlaceOrder(string path, IEnumerable<IBeverage> beverages)
         {
-            string text = "";
-
-            saveFileDialog1.Filter = "txt files|*.txt";
-            saveFileDialog1.InitialDirectory = "C:\\";
-            saveFileDialog1.FileName = "Inventory.txt";
-            //StreamWriter writer = new StreamWriter(path);
-            //FileStream fileStream = new FileStream(path, FileMode.Create);
-            using (FileStream fileStream = File.Create(path))
+            using (StreamWriter writer = File.AppendText(path))
             {
                 foreach (var drink in beverages)
                 {
-                    text += $"Product name: {drink.Name} Price: €{drink.Price} Date: {DateTime.Now}{Environment.NewLine}";
-                    AddText(fileStream, text);
-                    text = "";
+                    writer.WriteLine($"Product name: {drink.Name} Price: €{drink.Price} Date: {DateTime.UtcNow}");
                 }
+                writer.Close();
             }
-                
-            //if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-            //    foreach (var drink in beverages)
-            //    {
-            //        text += $"Product name: {drink.Name} Price: €{drink.Price} Date: {DateTime.Now}{Environment.NewLine}";
-            //        AddText(fileStream, text);
-            //    }
-            //    File.WriteAllText(saveFileDialog1.FileName, (text + "Total order: €" +lblTotal.Text+"\n"));
-            //}
 
-        }
-        private void AddText(FileStream fs, string value)
-        {
-            byte[] info = new UTF8Encoding(true).GetBytes(value);
-            fs.Write(info, 0, info.Length);
         }
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
             var drinks = myCart.GetDrinksInCart();
             PlaceOrder(path, drinks);
+            this.Close();
         }
+        
     }
 }
