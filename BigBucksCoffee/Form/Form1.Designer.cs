@@ -56,7 +56,6 @@ namespace BigBucksCoffee
             this.myUserControl1.IsInStock = false;
             this.myUserControl1.Location = new System.Drawing.Point(10, 10);
             this.myUserControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.myUserControl1.MaxCount = 5;
             this.myUserControl1.MyProductName = "ProductName";
             this.myUserControl1.Name = "myUserControl1";
             this.myUserControl1.Price = "Price";

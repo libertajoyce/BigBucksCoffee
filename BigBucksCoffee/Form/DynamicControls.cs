@@ -14,7 +14,6 @@ namespace BigBucksCoffee
     public partial class DynamicControls : Form
     {
         BeverageRepo beverageRepo;
-        FormShoppingCart _formShoppingCart;
         List<IBeverage> drinks;
         IShoppingCart shoppingCart;
 
@@ -24,10 +23,10 @@ namespace BigBucksCoffee
             beverageRepo = new BeverageRepo();
             drinks = beverageRepo.GetBeverages();
             GenerateControlsForDrinks(drinks);
-            _formShoppingCart = new FormShoppingCart();
             shoppingCart = ShoppingCart.GetCart();
 
         }
+
         private void GenerateControlsForDrinks(IEnumerable<IBeverage> drinks)
         {
             foreach (IBeverage drink in drinks)
@@ -53,18 +52,17 @@ namespace BigBucksCoffee
         {
             MyUserControl myUserControl = sender as MyUserControl;
             IBeverage drink = beverageRepo.GetDrink(myUserControl.DrinkID);
-
-            for (int i = 0; i < myUserControl.Amount; i++)
-            {
-                shoppingCart.AddDrinkToCart(drink);
-            }
+                for (int i = 0; i < myUserControl.Amount; i++)
+                {
+                    shoppingCart.AddDrinkToCart(drink);
+                }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form formCart = new FormShoppingCart();
             formCart.Show();
-            _formShoppingCart.ShowShoppingCartItems(drinks);
+            
         }
     }
 }

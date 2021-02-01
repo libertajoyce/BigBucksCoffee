@@ -21,7 +21,7 @@ namespace UserControls
             ButtonAddToCartClicked?.Invoke(this, e);
         }
 
-        public int MaxCount { get; set; } = 5;
+        public int MaxCount { get; } = 5;
 
         public int DrinkID { get; set; }
 
@@ -91,30 +91,60 @@ namespace UserControls
             get { return _count; }
             set
             {
-                if ((Count + value) <= MaxCount)
+                if (value <= MaxCount)
                 {
-                    _count += value;
+                    _count = value;
                 }
-                else
-                {
-                    MessageBox.Show("Maximum Limit of items!");
-                    btnAddToCart.Enabled = false;
-                }
+
+
+                //if (CanAddItems(value))
+                //{
+                //    _count += value;
+                //}
+
+                //if ((Count + value) <= MaxCount)
+                //{
+                //    _count += value;
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Maximum Limit of items!");
+                //    btnAddToCart.Enabled = false;
+                //}
             }
         }
-
+        private bool CanAddItems(int amount)
+        {
+            if ((Count + amount) <= MaxCount)
+            {
+                return true;
+            }
+            return false;
+        }
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
-            Count = Convert.ToInt32(Amount);
-            lblTotal.Text = (Count).ToString();
-            OnButtonAddToCartClicked(e);
+            if (CanAddItems(Convert.ToInt32(Amount)))
+            {
+
+                Count += Convert.ToInt32(Amount);
+                lblTotal.Text = (Count).ToString();
+                OnButtonAddToCartClicked(e);
+            }
+            else
+            {
+                MessageBox.Show("Maximum Limit of items!");
+                btnAddToCart.Enabled = false;
+            }
+            //Count = Convert.ToInt32(Amount);
+            //lblTotal.Text = (Count).ToString();
+
+            //OnButtonAddToCartClicked(e);
         }
 
         private void pbProduct_MouseHover(object sender, EventArgs e)
         {
             IBeverage drink = _repo.GetDrink(DrinkID);
             lblDescription.Visible = true;
-            //lblDescription.Text = Description;
             lblDescription.Text = drink.ToString();
             pbBackground.Visible = true;
         }
