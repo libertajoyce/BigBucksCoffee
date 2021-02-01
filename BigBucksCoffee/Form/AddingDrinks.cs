@@ -1,29 +1,23 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BigBucksCoffee
 {
     public partial class AddingDrinks : Form
     {
-        IBeverage drinks;
-        IBeverageRepo repo;
+        private IBeverage _drink;
+        private IBeverageRepo _repo;
 
         public AddingDrinks()
         {
             InitializeComponent();
-            repo = new BeverageRepo(); 
+            _repo = BeverageRepo.GetBeverageRepo();
         }
+
         public int tempID = 1;
-        
+
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
             ofdImageSelector.Title = "Choose an image";
@@ -50,6 +44,7 @@ namespace BigBucksCoffee
                 File.WriteAllText(saveFileDialog1.FileName, text);
             }
         }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             string name = txtAddingName.Text;
@@ -70,21 +65,22 @@ namespace BigBucksCoffee
 
             if (rbCoffee.Checked == true)
             {
-                drinks = new Coffee(10, name, description, price, image, backgroundImage, hasMilk, hasSugar, hasAlcohol);
+                drinks = new Coffee(10, name, description, price, image, backgroundImage, true, true, true);
             }
-            else if (rbTea.Checked == true)
+            else if (rbTea.Checked)
             {
-                drinks = new Tea(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true, true);
+                _drink = new Tea(10, name, description, price, image, backgroundImage, true, true, true, true);
             }
-            else if (rbSoda.Checked == true)
+            else if (rbSoda.Checked)
             {
-                drinks = new Soda(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true);
+                _drink = new Soda(10, name, description, price, image, backgroundImage, true, true, true);
             }
-            else if (rbSmoothie.Checked == true)
+            else if (rbSmoothie.Checked)
             {
-                drinks = new Smoothie(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true);
+                _drink = new Smoothie(10, name, description, price, image, backgroundImage, true, true, true);
             }
-            repo.AddDrink(drinks);
+
+            _repo.AddDrink(_drink);
         }
         
         private bool CheckItem(string input)
