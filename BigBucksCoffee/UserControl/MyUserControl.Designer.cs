@@ -116,10 +116,10 @@ namespace UserControls
             // 
             this.lblDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.lblDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDescription.Location = new System.Drawing.Point(19, 203);
+            this.lblDescription.Location = new System.Drawing.Point(19, 142);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(229, 47);
+            this.lblDescription.Size = new System.Drawing.Size(229, 108);
             this.lblDescription.TabIndex = 7;
             this.lblDescription.Visible = false;
             this.lblDescription.MouseLeave += new System.EventHandler(this.lblDescription_MouseLeave);

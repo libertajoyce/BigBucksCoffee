@@ -20,9 +20,9 @@
 
         public override string ToString()
         {
-            string yoghurt = HasYoghurt ? " With yoghurt" : "";
-            string milk = HasMilk ? "Contains milk. " : "";
-            string lactose = IsLactoseFree ? "Without lactose. " : "";
+            string yoghurt = HasYoghurt ? "\nWith yoghurt" : "";
+            string milk = HasMilk ? "\nContains milk." : "";
+            string lactose = IsLactoseFree ? "\nWithout lactose." : "";
             return base.ToString() + $"{yoghurt}{milk}{lactose}";
         }
     }

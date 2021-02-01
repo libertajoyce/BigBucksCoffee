@@ -20,11 +20,11 @@
 
         public override string ToString()
         {
-            string milk = HasMilk ? " With Milk" : "";
-            string sugar = HasSugar ? " With Sugar" : "";
-            string honey = HasHoney ? " With Honey" : "";
-            string lemon = HasLemon ? " With Lemon" : "";
-            return base.ToString() + $"{ milk} {sugar} {honey} {lemon}";
+            string milk = HasMilk ? "\nWith Milk." : "";
+            string sugar = HasSugar ? "\nWith Sugar." : "";
+            string honey = HasHoney ? "\nWith Honey." : "";
+            string lemon = HasLemon ? "\nWith Lemon." : "";
+            return base.ToString() + $"{milk}{sugar}{honey}{lemon}";
         }
     }
 }

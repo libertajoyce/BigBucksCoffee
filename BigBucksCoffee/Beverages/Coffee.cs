@@ -18,9 +18,9 @@
 
         public override string ToString()
         {
-            string milk = HasMilk ? " With Milk" : "";
-            string sugar = HasSugar ? "Contains sugar. " : "";
-            string alcohol = HasAlcohol ? "With happy juice. " : "";
+            string milk = HasMilk ? "\nWith Milk." : "";
+            string sugar = HasSugar ? "\nContains sugar." : "";
+            string alcohol = HasAlcohol ? "\nWith happy juice." : "";
             return base.ToString() + $"{milk}{sugar}{alcohol}";
         }
     }

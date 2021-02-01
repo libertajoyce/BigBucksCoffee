@@ -29,7 +29,7 @@
 
         public override string ToString()
         {
-            return $"ID:{ID} Name:{Name} Price:{Price} Description:{Description}";
+            return $"Name:{Name} \nPrice:{Price} \nDescription:{Description}";
         }
     }
 }

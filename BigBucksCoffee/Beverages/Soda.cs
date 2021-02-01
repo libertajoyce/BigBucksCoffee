@@ -17,9 +17,9 @@
         }
         public override string ToString()
         {
-            string diet = IsDiet ? "Light" : "";
-            string sparkling = IsSparkling ? "Contains bubbles. " : "";
-            string caffeine = HasCaffeine ? "With caffeine. " : "";
+            string diet = IsDiet ? "\nLight." : "";
+            string sparkling = IsSparkling ? "\nContains bubbles." : "";
+            string caffeine = HasCaffeine ? "\nWith caffeine." : "";
             return base.ToString() + $"{diet}{sparkling}{caffeine}";
         }
     }
