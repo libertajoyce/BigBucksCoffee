@@ -14,6 +14,7 @@ namespace BigBucksCoffee
             new Coffee(3, "Black Coffee", "Black coffee", 2.5, @"Images\blackCoffee.jpg",@"BackgroundImages\coffeeBlack.png", false, true, false),
             new Smoothie(4,"Morning smoothie","Strawberry Banana", 6.99,@"Images\strawberrySmoothie.jpg",@"BackgroundImages\strawberrySmoothie.png",true,true,true),
             new Soda(5, "Fanta orange","Fanta orange", 2.5,@"Images\fanta.jpg",@"BackgroundImages\fanta.png",false,true,false),
+            new Soda(6, "Coca Cola", "Regular coke.", 2.5, @"Images\cola.jpg",@"BackgroundImages\cola.png", false, true, true)
         };
 
             return drinks;
