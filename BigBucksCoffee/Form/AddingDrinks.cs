@@ -53,7 +53,7 @@ namespace BigBucksCoffee
                 {
                     if (clbAddingExtras.GetItemChecked(i))
                     {
-                        choices = clbAddingExtras.Items[i].ToString() + "\n";
+                        choices += clbAddingExtras.Items[i].ToString() + ",";
                     }
                 }
             }
@@ -85,15 +85,15 @@ namespace BigBucksCoffee
             }
             else if (rbTea.Checked)
             {
-                _drink = new Tea(10, name, description, price, image, backgroundImage, true, true, true, true);
+                _drink = new Tea(10, name, description, price, image, backgroundImage, hasMilk, hasSugar, hasHoney, hasLemon);
             }
             else if (rbSoda.Checked)
             {
-                _drink = new Soda(10, name, description, price, image, backgroundImage, true, true, true);
+                _drink = new Soda(10, name, description, price, image, backgroundImage, isDiet, hasBubbles, hasCaffeine);
             }
             else if (rbSmoothie.Checked)
             {
-                _drink = new Smoothie(10, name, description, price, image, backgroundImage, true, true, true);
+                _drink = new Smoothie(10, name, description, price, image, backgroundImage, hasYoghurt, hasMilk, hasLactose);
             }
 
             _repo.AddDrink(_drink);
@@ -103,9 +103,12 @@ namespace BigBucksCoffee
         {
             if (clbAddingExtras.CheckedItems.Count != 0)
             {
-                if (clbAddingExtras.CheckedItems.Equals(input))
+                for (int i = 0; i < clbAddingExtras.CheckedItems.Count; i++)
                 {
-                    return true;
+                    if (clbAddingExtras.CheckedItems.Equals(input))
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
