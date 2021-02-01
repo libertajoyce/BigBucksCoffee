@@ -13,12 +13,10 @@ namespace BigBucksCoffee
 {
     public partial class AddingDrinks : Form
     {
-        IBeverage drink;
-        IBeverageRepo drinks;
+        IBeverage drinks;
         public AddingDrinks()
         {
             InitializeComponent();
-            drinks = new BeverageRepo();
         }
         public int tempID = 1;
         
@@ -52,32 +50,20 @@ namespace BigBucksCoffee
         {
             if (rbCoffee.Checked == true)
             {
-                AddCoffee();
-                //drink = new Coffee(9, txtAddingName.Text, txtAddingDescription.Text, Convert.ToDouble(numAddingPrice.Value), drink.Image, drink.Background, true, true, true);
+                drinks = new Coffee(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true);
             }
             else if (rbTea.Checked == true)
             {
-                drink = new Tea(drink.ID, drink.Name, drink.Description, drink.Price, drink.Image, drink.Background, true, true, true, true);
+                drinks = new Tea(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true, true);
             }
             else if (rbSoda.Checked == true)
             {
-                drink = new Soda(drink.ID, drink.Name, drink.Description, drink.Price, drink.Image, drink.Background, true, true, true);
+                drinks = new Soda(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true);
             }
             else if (rbSmoothie.Checked == true)
             {
-                drink = new Smoothie(drink.ID, drink.Name, drink.Description, drink.Price, drink.Image, drink.Background, true, true, true);
+                drinks = new Smoothie(drinks.ID, drinks.Name, drinks.Description, drinks.Price, drinks.Image, drinks.Background, true, true, true);
             }
-            
-        }
-        public List<IBeverage> AddCoffee()
-        {
-
-            var koffie = new List<IBeverage>
-            {
-                new Coffee(9, txtAddingName.Text, txtAddingDescription.Text, Convert.ToDouble(numAddingPrice.Value), pbAddingPicture.ImageLocation, pbAddingPicture.ImageLocation, true, true, true)
-            };
-            return koffie;
-            
         }
     }
 }
