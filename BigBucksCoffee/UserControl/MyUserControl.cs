@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BigBucksCoffee;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,9 +7,11 @@ namespace UserControls
 {
     public partial class MyUserControl : UserControl
     {
+        BeverageRepo _repo;
         public MyUserControl()
         {
             InitializeComponent();
+            _repo = new BeverageRepo();
         }
 
         public event EventHandler ButtonAddToCartClicked;
@@ -109,8 +112,10 @@ namespace UserControls
 
         private void pbProduct_MouseHover(object sender, EventArgs e)
         {
+            IBeverage drink = _repo.GetDrink(DrinkID);
             lblDescription.Visible = true;
-            lblDescription.Text = Description;
+            //lblDescription.Text = Description;
+            lblDescription.Text = drink.ToString();
             pbBackground.Visible = true;
         }
 
