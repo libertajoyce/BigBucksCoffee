@@ -5,7 +5,15 @@ namespace BigBucksCoffee
 {
     public class BeverageRepo : IBeverageRepo
     {
-        public List<IBeverage> GetBeverages()
+        private IList<IBeverage> drinks;
+
+        public BeverageRepo()
+        {
+            drinks = GetInitialBeverages();
+            AddDrinkExample();
+        }
+
+        private List<IBeverage> GetInitialBeverages()
         {
             var drinks = new List<IBeverage>
         {
@@ -19,14 +27,30 @@ namespace BigBucksCoffee
 
             return drinks;
         }
+
+        public IList<IBeverage> GetBeverages()
+        {
+            return drinks;
+        }
+
         public IBeverage GetDrink(int id)
         {
-            List<IBeverage> allDrinks = GetBeverages();
+            IList<IBeverage> allDrinks = GetBeverages();
             var listOfBeverages = allDrinks.Where(x => x.ID == id).FirstOrDefault();
 
             return listOfBeverages;
         }
 
-        
+        public void AddDrink(IBeverage beverage)
+        {
+            drinks.Add(beverage);
+        }
+        private void AddDrinkExample()
+        {
+           var tea =  new Tea(7, "Tea 1", "Just a tea", 3, @"Images\greenTea.png", @"BackgroundImages\greenTea.png", false, true, false, false);
+           var coffee = new Coffee(8, "Coffee with milk", "Coffee with milk", 2.5, @"Images\blackCoffee.jpg", @"BackgroundImages\coffeeBlack.png", false, true, false);
+           AddDrink(tea);
+           AddDrink(coffee);
+        }
     }
 }

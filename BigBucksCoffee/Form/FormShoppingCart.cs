@@ -13,14 +13,11 @@ namespace BigBucksCoffee
 {
     public partial class FormShoppingCart : Form
     {
-        BeverageRepo beverageRepo;
         PriceCalculator priceCalculator;
         ShoppingCart myCart;
-        MyUserControl myUserControl = new MyUserControl();
         public FormShoppingCart()
         {
             InitializeComponent();
-            beverageRepo = new BeverageRepo();
             priceCalculator = new PriceCalculator();
             myCart = ShoppingCart.GetCart();
             var drinks = myCart.GetDrinksInCart();

@@ -14,7 +14,7 @@ namespace BigBucksCoffee.Test
             var beverageRepo = new BeverageRepo();
 
             // Act
-            var result = beverageRepo.GetBeverages();
+            var result = beverageRepo.GetInitialBeverages();
 
             // Assert
             Assert.Fail();
