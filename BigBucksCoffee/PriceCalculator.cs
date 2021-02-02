@@ -39,5 +39,10 @@ namespace BigBucksCoffee
         {
             return num1 + num2;
         }
+
+        public int Devision(int numA, int numB)
+        {
+            return numA / numB;
+        }
     }
 }

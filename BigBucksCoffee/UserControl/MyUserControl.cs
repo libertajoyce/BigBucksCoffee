@@ -21,7 +21,7 @@ namespace UserControls
             ButtonAddToCartClicked?.Invoke(this, e);
         }
 
-        public int MaxCount { get; } = 5;
+        const int MaxCount  = 5;
 
         public int DrinkId { get; set; }
 

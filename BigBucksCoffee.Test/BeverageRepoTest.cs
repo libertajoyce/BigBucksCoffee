@@ -8,12 +8,12 @@ namespace BigBucksCoffee.Test
 {
     class BeverageRepoTest
     {
-        BeverageRepo _repo;
+        IBeverageRepo _repo;
 
         [SetUp]
         public void Setup()
         {
-            _repo = new BeverageRepo();
+            _repo = BeverageRepo.GetBeverageRepo();
         }
 
         [Test]

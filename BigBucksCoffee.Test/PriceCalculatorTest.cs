@@ -41,5 +41,17 @@ namespace BigBucksCoffee.Test
 
             Assert.AreEqual(expectedResult, result);
         }
+        [Test]
+        public void SomethingSomething_TDD_ReturnSomething()
+        {
+            //assign
+            int numA = 6;
+            int numB = 3;
+            //act
+            int result = testPrice.Devision(numA, numB);
+            int expectedResult = numA / numB;
+            //Assert
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
