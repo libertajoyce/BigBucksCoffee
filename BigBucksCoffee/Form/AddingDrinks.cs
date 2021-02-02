@@ -37,7 +37,7 @@ namespace BigBucksCoffee
 
             saveFileDialog1.Filter = "txt files|*.txt";
             saveFileDialog1.InitialDirectory = "C:\\";
-            saveFileDialog1.FileName = "MyFile.txt";
+            saveFileDialog1.FileName = "Inventory.txt";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
